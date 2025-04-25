@@ -183,7 +183,8 @@ def get_repo_squash_and_merge_required() -> bool:
         allow_rebase_merge = repo_info['allow_rebase_merge']
     except KeyError:
         msg = ('::error:: Could not find the required keys in the GitHub API response. '
-               'Ensure the token has the `"Metadata" repository permissions (read)` scope.')
+               'Ensure the token has the `"Metadata" repository permissions (read)` scope. '
+               'If using the built-in GITHUB_TOKEN, ensure the `permissions/contents` is set to `write`.')
         print(msg)
         raise KeyError(msg)
 
